@@ -768,6 +768,37 @@ Transform:
   - {fileID: 9149403183248169224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &380967166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380967167}
+  m_Layer: 6
+  m_Name: HandStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380967167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380967166}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.64, z: 2.5489998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5505540230873972437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420848818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1984,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293543174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca70876a90a47d46bc6e8fa42abc499, type: 3}
   m_Name: 
@@ -2049,7 +2080,7 @@ Transform:
   m_GameObject: {fileID: 1483439172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5100002, y: 0.85, z: 2.5489998}
+  m_LocalPosition: {x: 0, y: -3.64, z: 2.5489998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5057,6 +5088,7 @@ Transform:
   - {fileID: 7243924323842442468}
   - {fileID: 1293543175}
   - {fileID: 1546161484}
+  - {fileID: 380967167}
   m_Father: {fileID: 3940221230772888448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5542532185697258276
@@ -5684,12 +5716,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09c03e1505517f4abc7f41d5f4f4add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  handObj: {fileID: 0}
-  mainCamera: {fileID: 0}
-  handCamera: {fileID: 0}
-  handStartPos: {fileID: 0}
+  handObj: {fileID: 1483439172}
+  cameraHolder: {fileID: 9142136071304535002}
+  mainCamera: {fileID: 1293543178}
+  handCamera: {fileID: 1546161487}
+  handStartPos: {fileID: 380967167}
   currentPlayState: 0
-  handMoveSpeed: 0
+  handMoveSpeed: 5
+  playerSmoothDampSpeed: 5
 --- !u!23 &8096665406692706506
 MeshRenderer:
   m_ObjectHideFlags: 0
