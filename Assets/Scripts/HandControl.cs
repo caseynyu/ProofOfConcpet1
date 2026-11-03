@@ -24,6 +24,8 @@ public class HandControl : MonoBehaviour
     private float playerRotateValueX,playerRotateValueY;
     private Vector3 playerMoveVelocity = Vector3.zero;
 
+    private GameObject collidedInteractionTrigger;
+
     void Start()
     {
         playerCameraControl=GetComponent<PlayerCameraControl>();
@@ -59,7 +61,8 @@ public class HandControl : MonoBehaviour
     private void MoveHand()
     {
         
-        handTargetPos = handCamera.WorldToScreenPoint(Input.mousePosition);
+        handTargetPos = handCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        handTargetPos.z = handObj.transform.position.z;
         handObj.transform.position = Vector3.SmoothDamp(handObj.transform.position,handTargetPos, ref handMoveVelocity, handMoveSpeed);
     }
 
@@ -80,4 +83,17 @@ public class HandControl : MonoBehaviour
         handObj.SetActive(true);
         playerTargetTrans=interactTransform;
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.GetComponent<InteractionPoint>()==null) return;
+        collidedInteractionTrigger = col.gameObject;
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if(col.gameObject.GetComponent<InteractionPoint>()==null) return;
+        collidedInteractionTrigger = null;
+    }
+
 }
