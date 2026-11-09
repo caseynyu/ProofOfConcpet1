@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PtestSuper2
-  m_Shader: {fileID: -6465566751694194690, guid: 188e542a20b06bf4e91caa9f08809ea1, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 41bea85f5066a824986a6731b4782578, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -92,6 +92,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _Contrast: 4
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -112,6 +113,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Saturation: 1.5
     - _ScreenSpaceReflections: 1
     - _ScreenSpaceReflectionsContributeTransparent: 1
     - _Smoothness: 0.5
@@ -125,6 +127,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Black: {r: 0, g: 0, b: 0, a: 1}
+    - _Blue: {r: 0.06724409, g: 0.06724399, b: 0.8553459, a: 1}
     - _CanvasColor: {r: 0.9874212, g: 0.9791123, b: 0.9346346, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0, g: 1, b: 1, a: 1}
@@ -132,8 +136,14 @@ Material:
     - _Color3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
     - _Color4: {r: 0, g: 0, b: 0, a: 1}
     - _Color5: {r: 0, g: 1, b: 0, a: 1}
+    - _Cyan: {r: 0.09119487, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Green: {r: 0, g: 1, b: 0, a: 1}
+    - _Magenta: {r: 0.8668015, g: 0.11635202, b: 1, a: 1}
+    - _Red: {r: 1, g: 0.21725911, b: 0.11006278, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _White: {r: 1, g: 0.99764496, b: 0.95911944, a: 1}
+    - _Yellow: {r: 0.9184665, g: 0.9685534, b: 0.16142547, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6856790326769358926
