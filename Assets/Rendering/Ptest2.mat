@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ptest2
-  m_Shader: {fileID: -6465566751694194690, guid: 3ef8480f6161609418385fd7a74a5c22, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 1c3a22f0c1f618e468d2b33f71a7817f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -85,6 +85,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _AngleOffset: 2
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -94,8 +95,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DotDensity: 80
-    - _DotSize: 0.56
+    - _DotDensity: 100
+    - _DotSize: 0.6
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -121,7 +122,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CanvasColor: {r: 0.9874212, g: 0.9791123, b: 0.9346346, a: 1}
+    - _CanvasColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
