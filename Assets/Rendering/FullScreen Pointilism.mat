@@ -39,16 +39,16 @@ Material:
     m_Floats:
     - _AngleOffset: 12
     - _BOffset: 32
-    - _CellDensity: 74.5
+    - _CellDensity: 1000
     - _ColorRemapON: 0
     - _Contrast: 1
-    - _Cutoff: 0.22
+    - _Cutoff: 0.5
     - _Dither: 1
-    - _DitherON: 0
+    - _DitherON: 1
     - _DotSize: 1
     - _GOffset: 11
     - _ROffset: 0
-    - _Saturation: 9
+    - _Saturation: 8
     m_Colors:
     - _Black: {r: 0.34591186, g: 0.34591186, b: 0.34591186, a: 1}
     - _Blue: {r: 0.41034764, g: 0.41034758, b: 0.9811321, a: 1}
