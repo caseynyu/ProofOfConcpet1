@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FullScreen Pointilism
+  m_Shader: {fileID: -6465566751694194690, guid: 1f1ec0a6d20eadf4583e56599c4af297, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AngleOffset: 12
+    - _BOffset: 32
+    - _CellDensity: 74.5
+    - _ColorRemapON: 0
+    - _Contrast: 1
+    - _Cutoff: 0.22
+    - _Dither: 1
+    - _DitherON: 0
+    - _DotSize: 1
+    - _GOffset: 11
+    - _ROffset: 0
+    - _Saturation: 9
+    m_Colors:
+    - _Black: {r: 0.34591186, g: 0.34591186, b: 0.34591186, a: 1}
+    - _Blue: {r: 0.41034764, g: 0.41034758, b: 0.9811321, a: 1}
+    - _Cyan: {r: 0.48113197, g: 1, b: 1, a: 1}
+    - _Green: {r: 0.3284086, g: 0.8490566, b: 0.32840863, a: 1}
+    - _Magenta: {r: 1, g: 0.46226406, b: 1.0000001, a: 1}
+    - _Red: {r: 0.9245283, g: 0.4855227, b: 0.4855227, a: 1}
+    - _White: {r: 1, g: 0.99973637, b: 0.9025157, a: 1}
+    - _Yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
