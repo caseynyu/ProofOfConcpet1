@@ -48,28 +48,41 @@ public class CrankScript : InteractableObject
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        
+        float deltaAngle = Mathf.DeltaAngle(lastZRotation, angle + angleOffset);
 
 
         crankPivot.transform.rotation = Quaternion.Euler(0, 0, angle + angleOffset);
         //Debug.Log((lastZRotation-(crankPivot.transform.rotation.z))*10000);
-        if (crankPivot.transform.rotation.z > lastZRotation)
+        /* if (crankPivot.transform.rotation.z > lastZRotation)
         {
             rotationCounter+=1;
         }
-        else
+        else if (crankPivot.transform.rotation.z < lastZRotation)
         {
             rotationCounter-=1;
+        } */
+
+        if (deltaAngle > 0)
+        {
+            rotationCounter += 1;
+        } else if (deltaAngle < 0)
+        {
+
+            rotationCounter -= 1;
         }
 
-        //rotationCounter+=((Mathf.Abs(crankPivot.transform.rotation.z))-Mathf.Abs(lastZRotation));
-        Debug.Log(rotationCounter);
-
-        
-
-        lastZRotation=crankPivot.transform.rotation.z;
+        lastZRotation = crankPivot.transform.rotation.eulerAngles.z;
 
         MoveSun();
+
+        //rotationCounter+=((Mathf.Abs(crankPivot.transform.rotation.z))-Mathf.Abs(lastZRotation));
+        //Debug.Log(rotationCounter);
+        //Debug.Log(crankPivot.transform.rotation.ToEuler());
+        //Debug.Log(angle);
+
+        //lastZRotation=crankPivot.transform.rotation.z;
+
+        //MoveSun();
         
 
         //crankPivot.transform.LookAt(target.transform);
@@ -78,14 +91,14 @@ public class CrankScript : InteractableObject
     private void MoveSun()
     {
         if(rotationCounter<0) rotationCounter=0;
-        if(rotationCounter>150) rotationCounter=150;
-        float rotaionCounterSmall = rotationCounter/150;
-        if(rotationCounter>140) {
+        if(rotationCounter>350) rotationCounter=360;
+        float rotaionCounterSmall = rotationCounter/360;
+        /* if(rotationCounter>140) {
             stopSunChanging=true;
             rotationCounter=150;
             triggertoEnable.SetActive(true);
             triggertoDisable.SetActive(false);
-        }
+        } */
 
         sunObj.transform.position = Vector3.Slerp(sunStart.position,sunEnd.position,rotaionCounterSmall);
         sunObj.transform.localScale = Vector3.Slerp(sunStart.localScale,sunEnd.localScale,rotaionCounterSmall);
