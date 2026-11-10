@@ -229,6 +229,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.GetComponent<SimpleTeleporter>())
         {
+            Debug.Log("teleport");
             controller.enabled=false;
             Transform teleportLocation = col.GetComponent<SimpleTeleporter>().teleportPoint;
             transform.position=teleportLocation.position;

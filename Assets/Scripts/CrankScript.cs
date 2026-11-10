@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CrankScript : InteractableObject
@@ -8,6 +9,14 @@ public class CrankScript : InteractableObject
     [SerializeField] GameObject crankPivot;
     [SerializeField] GameObject target;
     [SerializeField] float angleOffset;
+    [SerializeField] GameObject sunObj;
+    [SerializeField] Transform sunStart,sunEnd;
+
+    private bool stopSunChanging=false;
+
+    [SerializeField] GameObject triggertoEnable,triggertoDisable;
+
+
 
     private float lastZRotation;
 
@@ -16,6 +25,8 @@ public class CrankScript : InteractableObject
     void Awake()
     {
         handControl = FindAnyObjectByType<HandControl>();
+        sunObj.transform.position=sunStart.transform.position;
+        sunObj.transform.localScale=sunStart.transform.localScale;
     }
 
     public override void InteractStart()
@@ -30,6 +41,7 @@ public class CrankScript : InteractableObject
 
     private void UpdateRotation()
     {
+        if(stopSunChanging) return;
         //Z rotation
 
         Vector3 direction = target.transform.position - crankPivot.transform.position;
@@ -56,8 +68,28 @@ public class CrankScript : InteractableObject
         
 
         lastZRotation=crankPivot.transform.rotation.z;
+
+        MoveSun();
         
 
         //crankPivot.transform.LookAt(target.transform);
+    }
+
+    private void MoveSun()
+    {
+        if(rotationCounter<0) rotationCounter=0;
+        if(rotationCounter>150) rotationCounter=150;
+        float rotaionCounterSmall = rotationCounter/150;
+        if(rotationCounter>140) {
+            stopSunChanging=true;
+            rotationCounter=150;
+            triggertoEnable.SetActive(true);
+            triggertoDisable.SetActive(false);
+        }
+
+        sunObj.transform.position = Vector3.Slerp(sunStart.position,sunEnd.position,rotaionCounterSmall);
+        sunObj.transform.localScale = Vector3.Slerp(sunStart.localScale,sunEnd.localScale,rotaionCounterSmall);
+        
+
     }
 }
