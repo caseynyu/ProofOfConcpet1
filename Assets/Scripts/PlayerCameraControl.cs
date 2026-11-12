@@ -44,5 +44,10 @@ public class PlayerCameraControl : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -90f, 90f); //clamp the rotationX to 90 degrees up and down
         cameraHolder.localRotation = Quaternion.Euler(rotationX, 0f, 0f); //rotate the camera up and down based on rotationX  
     }
+
+    public void ResetLook()
+    {
+        transform.localRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+    }
 }
 

@@ -6477,6 +6477,7 @@ GameObject:
   - component: {fileID: 1006665582}
   - component: {fileID: 1006665580}
   - component: {fileID: 1006665585}
+  - component: {fileID: 1006665586}
   m_Layer: 7
   m_Name: DoorInteractTrigger (2)
   m_TagString: Untagged
@@ -6512,8 +6513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8784c4684e29c6846ab7cea78baeb831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePortalsNature
-  natureEntrance: {fileID: 1918914257}
-  psxExit: {fileID: 624516638}
+  entrance: {fileID: 0}
+  exit: {fileID: 0}
   portal1: {fileID: 64893900312288309}
   portal2: {fileID: 6619956180313056512}
 --- !u!65 &1006665582
@@ -6601,13 +6602,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006665578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f577f1d13e1f7449a143df23c3223d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnablePortals
   disableTrigger: 1
   trigger: {fileID: 8100544541334884858}
+--- !u!114 &1006665586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006665578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f7a9e7ced46d645944a08bf8268812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnablePortalsTV
+  disableTrigger: 1
+  trigger: {fileID: 0}
+  tvStaticSprite: {fileID: 0}
 --- !u!1 &1007714513
 GameObject:
   m_ObjectHideFlags: 0
@@ -9959,8 +9975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8784c4684e29c6846ab7cea78baeb831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePortalsNature
-  natureEntrance: {fileID: 353193914}
-  psxExit: {fileID: 898635817}
+  entrance: {fileID: 353193914}
+  exit: {fileID: 0}
   portal1: {fileID: 64893900312288309}
   portal2: {fileID: 6619956180313056512}
 --- !u!43 &1586545148
@@ -21770,7 +21786,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -23289,7 +23305,7 @@ Transform:
   m_GameObject: {fileID: 2122736198316270349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -1.9837, z: 0}
+  m_LocalPosition: {x: 0, y: -1.9837, z: 0.125}
   m_LocalScale: {x: 0.22721858, y: 0.2, z: 0.2944922}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23319,7 +23335,7 @@ Transform:
   m_GameObject: {fileID: 998260971276126539}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.69, y: 111.86, z: -11.92}
+  m_LocalPosition: {x: 3.3, y: 51.3, z: -10.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27350,7 +27366,7 @@ Transform:
   m_GameObject: {fileID: 2497098645206414532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.40402, y: -4.26591, z: -0.9520397}
+  m_LocalPosition: {x: 3.358, y: -4.26591, z: -0.9520397}
   m_LocalScale: {x: 1.8348992, y: 3.117488, z: 0.3673}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27542,7 +27558,7 @@ Transform:
   m_GameObject: {fileID: 8836232221941459407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.695271, y: 4.8344655, z: -5.232979}
+  m_LocalPosition: {x: 0.54, y: 4.8344655, z: 9.48}
   m_LocalScale: {x: 1.2433057, y: 1.2433057, z: 1.2433057}
   m_ConstrainProportionsScale: 0
   m_Children: []
