@@ -93,7 +93,6 @@ public class PortalableObject : MonoBehaviour
     {
         GetComponent<CharacterController>().enabled=false;
         //if(!canWarp) return;
-        Debug.Log("warped");
         var inTransform = inPortal.transform;
         var outTransform = outPortal.transform;
 
@@ -119,6 +118,7 @@ public class PortalableObject : MonoBehaviour
         GetComponent<PlayerCameraControl>().ResetLook(); */
 
         // Swap portal references.
+        inPortal.ExitPortal(this);
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;

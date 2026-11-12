@@ -23,8 +23,6 @@ public class EnablePortalsTV : MonoBehaviour
         player.GetComponentInChildren<HandCamera>().gameObject.SetActive(false);
         yield return null;
         player.GetComponentInChildren<PortalCamera>().gameObject.GetComponent<PortalCamera>().enabled=true;
-
-
         //Fade out tv static sprite
     }
 }

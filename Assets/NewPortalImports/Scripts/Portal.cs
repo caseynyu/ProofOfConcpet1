@@ -54,7 +54,6 @@ public class Portal : MonoBehaviour
         for (int i = 0; i < portalObjects.Count; ++i)
         {
             Vector3 objPos = transform.InverseTransformPoint(portalObjects[i].transform.position);
-            Debug.Log(objPos.z);
 
             if (objPos.z > -0.1f)
             {
@@ -74,12 +73,25 @@ public class Portal : MonoBehaviour
         }
     }
 
+    public void ExitPortal(PortalableObject obj)
+    {
+        if(portalObjects.Contains(obj))
+        {
+            Debug.Log("exiting? 2");
+            portalObjects.Remove(obj);
+            obj.ExitPortal();
+        }
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("exiting?");
         var obj = other.GetComponent<PortalableObject>();
 
         if(portalObjects.Contains(obj))
         {
+            Debug.Log("exiting? 2");
             portalObjects.Remove(obj);
             obj.ExitPortal();
         }

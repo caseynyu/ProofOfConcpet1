@@ -1,16 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MovePortals : MonoBehaviour
 {
-    [SerializeField] Transform entrance,exit;
-    [SerializeField] GameObject portal1,portal2;
+    private List<PortalCamera> portalCameras;
+    [SerializeField] Portal portal1,portal2;
+
+
+    void Start()
+    {
+        portalCameras= FindObjectsByType<PortalCamera>().ToList();
+    }
 
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.GetComponent<PlayerMovement>()==null) return;
-        portal1.transform.position=entrance.position;
-        portal1.transform.rotation=entrance.rotation;
-        portal2.transform.position=exit.position;
-        portal2.transform.rotation=exit.rotation;
+        foreach(PortalCamera portalCamera in portalCameras)
+        {
+            portalCamera.portals= new Portal[] {portal1,portal2};
+        }
     }
 }
