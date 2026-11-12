@@ -19,13 +19,15 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Transform testTransform;
 
-    private List<PortalableObject> portalObjects = new List<PortalableObject>();
+    [SerializeField] private List<PortalableObject> portalObjects = new List<PortalableObject>();
     public bool IsPlaced { get; private set; } = false;
-    private Collider wallCollider;
+    [SerializeField] private Collider wallCollider;
 
     // Components.
     public Renderer Renderer { get; private set; }
     private new BoxCollider collider;
+
+    [SerializeField] private bool canTeleportThrough;
 
     private void Awake()
     {
@@ -52,8 +54,9 @@ public class Portal : MonoBehaviour
         for (int i = 0; i < portalObjects.Count; ++i)
         {
             Vector3 objPos = transform.InverseTransformPoint(portalObjects[i].transform.position);
+            Debug.Log(objPos.z);
 
-            if (objPos.z > 0.0f)
+            if (objPos.z > -0.1f)
             {
                 portalObjects[i].Warp();
             }
@@ -62,11 +65,12 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!canTeleportThrough) return;
         var obj = other.GetComponent<PortalableObject>();
         if (obj != null)
         {
             portalObjects.Add(obj);
-            obj.SetIsInPortal(this, OtherPortal, wallCollider);
+            obj.SetIsInPortal(this, OtherPortal);
         }
     }
 
@@ -77,7 +81,7 @@ public class Portal : MonoBehaviour
         if(portalObjects.Contains(obj))
         {
             portalObjects.Remove(obj);
-            obj.ExitPortal(wallCollider);
+            obj.ExitPortal();
         }
     }
 

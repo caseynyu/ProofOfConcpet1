@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 public class PortalableObject : MonoBehaviour
 {
@@ -15,10 +15,12 @@ public class PortalableObject : MonoBehaviour
     private Portal inPortal;
     private Portal outPortal;
 
-    private new Rigidbody rigidbody;
+    //private new Rigidbody rigidbody;
     protected new Collider collider;
 
     private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+
+    private bool canWarp=true;
 
     protected virtual void Awake()
     {
@@ -31,7 +33,7 @@ public class PortalableObject : MonoBehaviour
         meshRenderer.materials = GetComponent<MeshRenderer>().materials;
         cloneObject.transform.localScale = transform.localScale;
 
-        rigidbody = GetComponent<Rigidbody>();
+        //rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
     }
 
@@ -63,7 +65,7 @@ public class PortalableObject : MonoBehaviour
         }
     }
 
-    public void SetIsInPortal(Portal inPortal, Portal outPortal, Collider wallCollider)
+    public void SetIsInPortal(Portal inPortal, Portal outPortal)
     {
         this.inPortal = inPortal;
         this.outPortal = outPortal;
@@ -75,8 +77,9 @@ public class PortalableObject : MonoBehaviour
         ++inPortalCount;
     }
 
-    public void ExitPortal(Collider wallCollider)
+    public void ExitPortal()
     {
+        Debug.Log("exit");
         //Physics.IgnoreCollision(collider, wallCollider, false);
         --inPortalCount;
 
@@ -88,27 +91,37 @@ public class PortalableObject : MonoBehaviour
 
     public virtual void Warp()
     {
+        GetComponent<CharacterController>().enabled=false;
+        //if(!canWarp) return;
+        Debug.Log("warped");
         var inTransform = inPortal.transform;
         var outTransform = outPortal.transform;
 
         // Update position of object.
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
+        //relativePos.z+=0.5f;
+
         relativePos = halfTurn * relativePos;
         transform.position = outTransform.TransformPoint(relativePos);
 
+
         // Update rotation of object.
-        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
+         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = halfTurn * relativeRot;
         transform.rotation = outTransform.rotation * relativeRot;
 
+        //canWarp=false;
+
         // Update velocity of rigidbody.
-        Vector3 relativeVel = inTransform.InverseTransformDirection(rigidbody.linearVelocity);
+        /* Vector3 relativeVel = inTransform.InverseTransformDirection(GetComponent<PlayerMovement>().velocityPhysics);
         relativeVel = halfTurn * relativeVel;
-        rigidbody.linearVelocity = outTransform.TransformDirection(relativeVel);
+        GetComponent<PlayerMovement>().velocityPhysics = outTransform.TransformDirection(relativeVel);
+        GetComponent<PlayerCameraControl>().ResetLook(); */
 
         // Swap portal references.
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;
+        GetComponent<CharacterController>().enabled=true;
     }
 }

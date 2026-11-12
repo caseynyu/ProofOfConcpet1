@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool wasGroundedLastFrame;
     private Vector3 velocity;
     private Vector3 velocityInput;
-    private Vector3 velocityPhysics;
+    public Vector3 velocityPhysics;
     private CharacterController controller;
     private Controls controls;
     [SerializeField] private GameObject cameraHolder;
