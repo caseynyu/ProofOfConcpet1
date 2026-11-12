@@ -91,8 +91,14 @@ public class CrankScript : InteractableObject
     private void MoveSun()
     {
         if(rotationCounter<0) rotationCounter=0;
-        if(rotationCounter>350) rotationCounter=360;
+        if(rotationCounter>350) rotationCounter=360; 
+        /* if(rotationCounter>20) sunSprite = sunspriteanimation2
+        if(rotationCounter>70) sunSprite = sunspriteanimation3
+        if(rotationCounter>120) sunSprite = sunspriteanimation4 */
         float rotaionCounterSmall = rotationCounter/360;
+
+        //Use rotation counter to animate sun
+
         /* if(rotationCounter>140) {
             stopSunChanging=true;
             rotationCounter=150;
