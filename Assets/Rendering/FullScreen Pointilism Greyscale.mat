@@ -39,7 +39,7 @@ Material:
     m_Floats:
     - _AngleOffset: 12
     - _BOffset: 32
-    - _CellDensity: 1000
+    - _CellDensity: 1080
     - _ColorRemapON: 1
     - _Contrast: 1
     - _Cutoff: 0.5
