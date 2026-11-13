@@ -40,7 +40,7 @@ Material:
     - _AngleOffset: 12
     - _BOffset: 32
     - _CellDensity: 1000
-    - _ColorRemapON: 0
+    - _ColorRemapON: 1
     - _Contrast: 1
     - _Cutoff: 0.5
     - _Dither: 1
@@ -48,15 +48,16 @@ Material:
     - _DotSize: 1
     - _GOffset: 11
     - _ROffset: 0
-    - _Saturation: 8
+    - _Saturation: 14
+    - _VoronoiON: 1
     m_Colors:
-    - _Black: {r: 0.34591186, g: 0.34591186, b: 0.34591186, a: 1}
-    - _Blue: {r: 0.41034764, g: 0.41034758, b: 0.9811321, a: 1}
-    - _Cyan: {r: 0.48113197, g: 1, b: 1, a: 1}
-    - _Green: {r: 0.3284086, g: 0.8490566, b: 0.32840863, a: 1}
-    - _Magenta: {r: 1, g: 0.46226406, b: 1.0000001, a: 1}
-    - _Red: {r: 0.9245283, g: 0.4855227, b: 0.4855227, a: 1}
-    - _White: {r: 1, g: 0.99973637, b: 0.9025157, a: 1}
-    - _Yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    - _Black: {r: 0, g: 0, b: 0, a: 1}
+    - _Blue: {r: 0.1176471, g: 0.5647059, b: 1, a: 1}
+    - _Cyan: {r: 0, g: 0.7490196, b: 1, a: 1}
+    - _Green: {r: 0.4862745, g: 0.9882354, b: 0, a: 1}
+    - _Magenta: {r: 1, g: 0.07843138, b: 0.5764706, a: 1}
+    - _Red: {r: 1, g: 0, b: 0, a: 1}
+    - _White: {r: 1, g: 1, b: 1, a: 1}
+    - _Yellow: {r: 1, g: 0.8431373, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
