@@ -13,7 +13,7 @@ public class FuseButton : InteractableObject
         if (fuseInserted)
         {
             gameObject.GetComponent<MovePortals>().MovePortalsCode();
-            gameObject.GetComponent<EnablePortals>().enablePortals(handControl.gameObject);
+            //gameObject.GetComponent<EnablePortals>().enablePortals();
         }
     }
 }

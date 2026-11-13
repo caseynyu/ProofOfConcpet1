@@ -11,6 +11,7 @@ public class HandControl : MonoBehaviour
 
     [SerializeField] private GameObject handObj,cameraHolder;
     [SerializeField] private Camera mainCamera,handCamera;
+    [SerializeField] private GameObject handCameraRenderTexture;
     [SerializeField] private Transform handStartPos;
 
     [SerializeField] private Sprite handSpriteDefault,handSpriteGrab1;
@@ -323,7 +324,8 @@ public class HandControl : MonoBehaviour
         switchedThisFrame=true;
         currentPlayState=PlayStates.exploring;
         playerCameraControl.freezeCameraRotation=false;
-        handCamera.enabled=false;
+        //handCamera.enabled=false;
+        handCameraRenderTexture.SetActive(false);
         handObj.SetActive(false);
     }
 
@@ -341,7 +343,8 @@ public class HandControl : MonoBehaviour
         currentPlayState=PlayStates.interacting;
         playerCameraControl.freezeCameraRotation=true;
         Mouse.current.WarpCursorPosition(handStartPos.position);
-        handCamera.enabled=true;
+        //handCamera.enabled=true;
+        handCameraRenderTexture.SetActive(true);
         handObj.SetActive(true);
         handObj.transform.position= new Vector3(handStartPos.position.x,handStartPos.position.y,handObj.transform.position.z);
         playerTargetTrans=interactTransform;

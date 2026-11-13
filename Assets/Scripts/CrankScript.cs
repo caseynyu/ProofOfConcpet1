@@ -28,7 +28,7 @@ public class CrankScript : InteractableObject
         handControl = FindAnyObjectByType<HandControl>();
         sunObj.transform.position=sunStart.transform.position;
         sunObj.transform.localScale=sunStart.transform.localScale;
-        triggertoEnable.GetComponent<EnablePortals>().disableTrigger=true;
+        triggertoEnable.GetComponent<EnablePortals>().disabled=true;
     }
 
     public override void InteractStart()
@@ -99,8 +99,8 @@ public class CrankScript : InteractableObject
             stopSunChanging=true;
             interactionFinished=true;
             handControl.SetTriggerInteractionFinished();
-            triggertoEnable.GetComponent<EnablePortals>().disableTrigger=false;
-            secondtriggertoEnable.GetComponent<MovePortals>().triggerEnabled=true;
+            triggertoEnable.GetComponent<EnablePortals>().EnablePortalsDirect();
+            secondtriggertoEnable.GetComponent<SwapPortals>().SwapPortalsDirect();
             //triggertoEnable.GetComponent<EnablePortals>().enablePortals(handControl.gameObject);
         } 
         /* if(rotationCounter>20) sunSprite = sunspriteanimation2

@@ -29,7 +29,7 @@ public class MovePortals : MonoBehaviour
         portal2.EnablePortal();
         if (gameObject.GetComponent<EnablePortals>())
         {
-            gameObject.GetComponent<EnablePortals>().enablePortals(FindAnyObjectByType<HandControl>().gameObject);
+            gameObject.GetComponent<EnablePortals>().EnablePortalsDirect();
         }
     }
 
