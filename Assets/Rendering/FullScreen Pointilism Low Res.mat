@@ -39,8 +39,8 @@ Material:
     m_Floats:
     - _AngleOffset: 12
     - _BOffset: 32
-    - _CellDensity: 25
-    - _ColorRemapON: 0
+    - _CellDensity: 100
+    - _ColorRemapON: 1
     - _Contrast: 1
     - _Cutoff: 0.5
     - _Dither: 1
@@ -51,12 +51,12 @@ Material:
     - _Saturation: 14
     - _VoronoiON: 0
     m_Colors:
-    - _Black: {r: 0.34591186, g: 0.34591186, b: 0.34591186, a: 1}
-    - _Blue: {r: 0.41034764, g: 0.41034758, b: 0.9811321, a: 1}
-    - _Cyan: {r: 0.48113197, g: 1, b: 1, a: 1}
-    - _Green: {r: 0.3284086, g: 0.8490566, b: 0.32840863, a: 1}
-    - _Magenta: {r: 1, g: 0.46226406, b: 1.0000001, a: 1}
-    - _Red: {r: 0.9245283, g: 0.4855227, b: 0.4855227, a: 1}
+    - _Black: {r: 0, g: 0, b: 0, a: 1}
+    - _Blue: {r: 0.21069172, g: 0.21069163, b: 1, a: 1}
+    - _Cyan: {r: 0.17924517, g: 1, b: 1, a: 1}
+    - _Green: {r: 0.23749045, g: 0.9559748, b: 0.23749049, a: 1}
+    - _Magenta: {r: 0.8805031, g: 0.2187412, b: 0.8805032, a: 1}
+    - _Red: {r: 1, g: 0.20440245, b: 0.20440245, a: 1}
     - _White: {r: 1, g: 0.99973637, b: 0.9025157, a: 1}
     - _Yellow: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_BuildTextureStacks: []
