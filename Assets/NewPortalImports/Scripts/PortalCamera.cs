@@ -8,7 +8,7 @@ using RenderPipeline = UnityEngine.Rendering.RenderPipelineManager;
 public class PortalCamera : MonoBehaviour
 {
     [SerializeField]
-    private Portal[] portals = new Portal[2];
+    public Portal[] portals = new Portal[2];
 
     [SerializeField]
     private Camera portalCamera;

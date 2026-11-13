@@ -19,13 +19,15 @@ public class Portal : MonoBehaviour
     [SerializeField]
     private Transform testTransform;
 
-    private List<PortalableObject> portalObjects = new List<PortalableObject>();
+    [SerializeField] private List<PortalableObject> portalObjects = new List<PortalableObject>();
     public bool IsPlaced { get; private set; } = false;
-    private Collider wallCollider;
+    [SerializeField] private Collider wallCollider;
 
     // Components.
     public Renderer Renderer { get; private set; }
     private new BoxCollider collider;
+
+    [SerializeField] private bool canTeleportThrough;
 
     private void Awake()
     {
@@ -53,7 +55,7 @@ public class Portal : MonoBehaviour
         {
             Vector3 objPos = transform.InverseTransformPoint(portalObjects[i].transform.position);
 
-            if (objPos.z > 0.0f)
+            if (objPos.z > -0.1f)
             {
                 portalObjects[i].Warp();
             }
@@ -62,22 +64,36 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!canTeleportThrough) return;
         var obj = other.GetComponent<PortalableObject>();
         if (obj != null)
         {
             portalObjects.Add(obj);
-            obj.SetIsInPortal(this, OtherPortal, wallCollider);
+            obj.SetIsInPortal(this, OtherPortal);
         }
     }
 
+    public void ExitPortal(PortalableObject obj)
+    {
+        if(portalObjects.Contains(obj))
+        {
+            Debug.Log("exiting? 2");
+            portalObjects.Remove(obj);
+            obj.ExitPortal();
+        }
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("exiting?");
         var obj = other.GetComponent<PortalableObject>();
 
         if(portalObjects.Contains(obj))
         {
+            Debug.Log("exiting? 2");
             portalObjects.Remove(obj);
-            obj.ExitPortal(wallCollider);
+            obj.ExitPortal();
         }
     }
 

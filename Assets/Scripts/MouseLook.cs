@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,4 +46,6 @@ public class MouseLook : MonoBehaviour
         //Yaw
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
+
+    
 }
