@@ -4,7 +4,7 @@ using UnityEngine;
 public class CrankScript : InteractableObject
 {
     
-    private HandControl handControl;
+    //private HandControl handControl;
 
     [SerializeField] GameObject crankPivot;
     [SerializeField] GameObject target;
@@ -14,7 +14,7 @@ public class CrankScript : InteractableObject
 
     private bool stopSunChanging=false;
 
-    [SerializeField] GameObject triggertoEnable,triggertoDisable;
+    [SerializeField] GameObject triggertoEnable,secondtriggertoEnable,triggertoDisable;
 
 
 
@@ -22,11 +22,13 @@ public class CrankScript : InteractableObject
 
     private float rotationCounter;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         handControl = FindAnyObjectByType<HandControl>();
         sunObj.transform.position=sunStart.transform.position;
         sunObj.transform.localScale=sunStart.transform.localScale;
+        triggertoEnable.GetComponent<EnablePortals>().disableTrigger=true;
     }
 
     public override void InteractStart()
@@ -91,7 +93,16 @@ public class CrankScript : InteractableObject
     private void MoveSun()
     {
         if(rotationCounter<0) rotationCounter=0;
-        if(rotationCounter>350) rotationCounter=360; 
+        if (rotationCounter > 350)
+        {
+            rotationCounter=360; 
+            stopSunChanging=true;
+            interactionFinished=true;
+            handControl.SetTriggerInteractionFinished();
+            triggertoEnable.GetComponent<EnablePortals>().disableTrigger=false;
+            secondtriggertoEnable.GetComponent<MovePortals>().triggerEnabled=true;
+            //triggertoEnable.GetComponent<EnablePortals>().enablePortals(handControl.gameObject);
+        } 
         /* if(rotationCounter>20) sunSprite = sunspriteanimation2
         if(rotationCounter>70) sunSprite = sunspriteanimation3
         if(rotationCounter>120) sunSprite = sunspriteanimation4 */

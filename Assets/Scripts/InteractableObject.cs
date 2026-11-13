@@ -6,9 +6,15 @@ public class InteractableObject : MonoBehaviour
     public bool isInteracting=false;
     public HandControl.InteractionTypes interactionType;
     public HandControl.InteractionInputs InteractionInput;
+    public bool interactionFinished=false;
+    public HandControl handControl;
 
     public Transform dragStartPoint,dragEndPoint;
 
+    public virtual void Awake()
+    {
+        handControl=FindAnyObjectByType<HandControl>();
+    }
 
     public virtual void InteractStart()
     {

@@ -7,6 +7,7 @@ public class InteractionPoint : MonoBehaviour
     
     [SerializeField] public List<GameObject> interactableObjects = new List<GameObject>();
     [HideInInspector] public Transform pointToMoveTo;
+    public bool interactionFinished;
 
     void Start()
     {

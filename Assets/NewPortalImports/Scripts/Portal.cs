@@ -32,7 +32,19 @@ public class Portal : MonoBehaviour
     private void Awake()
     {
         collider = GetComponentInChildren<BoxCollider>();
-        Renderer = GetComponentInChildren<Renderer>();
+        Renderer = GetComponentInChildren<MeshRenderer>();
+    }
+
+    public void DisablePortal()
+    {
+        collider.enabled=false;
+        Renderer.enabled=false;
+    }
+
+    public void EnablePortal()
+    {
+        collider.enabled=true;
+        Renderer.enabled=true;
     }
 
     private void Start()
