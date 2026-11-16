@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
 
 public class HandControl : MonoBehaviour
@@ -9,6 +11,7 @@ public class HandControl : MonoBehaviour
 
     [SerializeField] private GameObject handObj,cameraHolder;
     [SerializeField] private Camera mainCamera,handCamera;
+    [SerializeField] private GameObject handCameraRenderTexture;
     [SerializeField] private Transform handStartPos;
 
     [SerializeField] private Sprite handSpriteDefault,handSpriteGrab1;
@@ -17,11 +20,12 @@ public class HandControl : MonoBehaviour
     {
         exploring,
         interacting,
+        grabCutscene,
     }
     public PlayStates currentPlayState;
 
     private PlayerCameraControl playerCameraControl;
-    [SerializeField] private float handMoveSpeed,playerSmoothDampSpeed;
+    [SerializeField] private float handMoveSpeed,playerSmoothDampSpeed,slerpSpeed;
     private Vector3 handTargetPos;
     private Transform playerTargetTrans;
     private Vector3 handMoveVelocity = Vector3.zero;
@@ -34,6 +38,8 @@ public class HandControl : MonoBehaviour
 
     private SpriteRenderer handSpriteRenderer;
 
+    public bool hasFuse;
+
     private bool switchedThisFrame=false;
 
     private InteractableObject hoveringInteractableObj;
@@ -43,6 +49,9 @@ public class HandControl : MonoBehaviour
     [SerializeField] private LayerMask interactionLayerMask, crankLayerMask;
 
     [SerializeField] private GameObject crankPointObj;
+    private CharacterController controller;
+
+    private bool insideInteractionTrigger=false;
 
     public enum InteractionTypes
     {
@@ -68,6 +77,7 @@ public class HandControl : MonoBehaviour
     {
         playerCameraControl=GetComponent<PlayerCameraControl>();
         handSpriteRenderer=handObj.GetComponent<SpriteRenderer>();
+        controller=GetComponent<CharacterController>();
         SwitchToExploring();
     }
 
@@ -78,7 +88,7 @@ public class HandControl : MonoBehaviour
                 //if(Keyboard.current.spaceKey.wasPressedThisFrame) SwitchToInteracting(transform);
                 break;
             case PlayStates.interacting:
-                if(Keyboard.current.spaceKey.wasPressedThisFrame|| Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame) {
+                if(Keyboard.current.wKey.wasPressedThisFrame|| Keyboard.current.aKey.wasPressedThisFrame || Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.dKey.wasPressedThisFrame) {
                     SwitchToExploring();
                 }
                 MovePlayer();
@@ -246,13 +256,23 @@ public class HandControl : MonoBehaviour
 
     }
 
+
     private void MovePlayer()
     {
+        if(playerRotateValueY!=0) Debug.Log(playerRotateValueY);
         transform.position = Vector3.SmoothDamp(transform.position,playerTargetTrans.position, ref playerMoveVelocity, playerSmoothDampSpeed);
-        float rotY = Mathf.SmoothDamp(transform.rotation.y,playerTargetTrans.rotation.y,ref playerRotateValueY,playerSmoothDampSpeed);
-        float rotX = Mathf.SmoothDamp(cameraHolder.transform.rotation.x,playerTargetTrans.rotation.x,ref playerRotateValueX,playerSmoothDampSpeed);
-        transform.rotation = new Quaternion(transform.rotation.x,rotY,transform.rotation.z,transform.rotation.w);
-        cameraHolder.transform.rotation = new Quaternion(rotX,transform.rotation.y,transform.rotation.z,transform.rotation.w);
+        Vector3 eulerAngles = transform.rotation.eulerAngles;
+        //float rotY = Mathf.SmoothDampAngle(eulerAngles.y,playerTargetTrans.rotation.y,ref playerRotateValueY,playerSmoothDampSpeed);
+        //float rotX = Mathf.SmoothDampAngle(cameraHolder.transform.rotation.x,playerTargetTrans.rotation.x,ref playerRotateValueX,playerSmoothDampSpeed);
+        //float royYTest = 
+        //Debug.Log(playerTargetTrans.rotation.y);
+        Quaternion cameraHolderRotateTowards = new Quaternion(playerTargetTrans.rotation.x,cameraHolder.transform.rotation.y,cameraHolder.transform.rotation.z,cameraHolder.transform.rotation.w);
+        transform.rotation = Quaternion.Slerp(transform.rotation,playerTargetTrans.rotation,slerpSpeed*Time.deltaTime);
+        cameraHolder.transform.localRotation = Quaternion.identity;//Quaternion.Slerp(cameraHolder.transform.rotation,cameraHolderRotateTowards,slerpSpeed);
+        //Quaternion.identity;//new Quaternion(playerTargetTrans.rotation.x,cameraHolder.transform.rotation.y,cameraHolder.transform.rotation.z,cameraHolder.transform.rotation.w);
+        //cameraHolder.transform.rotation = Quaternion.Slerp(cameraHolder.transform.rotation,playerTargetTrans.rotation,slerpSpeed);
+        //transform.rotation = new Quaternion(transform.rotation.x,rotY,transform.rotation.z,transform.rotation.w);
+        //cameraHolder.transform.rotation = new Quaternion(rotX,transform.rotation.y,transform.rotation.z,transform.rotation.w);
     }
 
     private void MoveHand()
@@ -297,21 +317,34 @@ public class HandControl : MonoBehaviour
 
     public void SwitchToExploring()
     {
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.identity,slerpSpeed);
+        cameraHolder.transform.localRotation = Quaternion.identity;
+        
+        controller.enabled=true;
         switchedThisFrame=true;
         currentPlayState=PlayStates.exploring;
         playerCameraControl.freezeCameraRotation=false;
-        handCamera.enabled=false;
+        //handCamera.enabled=false;
+        handCameraRenderTexture.SetActive(false);
         handObj.SetActive(false);
+    }
+
+    public void SetTriggerInteractionFinished()
+    {
+        print(playerTargetTrans.parent.gameObject.name);
+        playerTargetTrans.parent.gameObject.GetComponent<InteractionPoint>().interactionFinished=true;
     }
 
     public void SwitchToInteracting(Transform interactTransform)
     {
         Debug.Log("test");
+        controller.enabled=false;
         switchedThisFrame=true;
         currentPlayState=PlayStates.interacting;
         playerCameraControl.freezeCameraRotation=true;
         Mouse.current.WarpCursorPosition(handStartPos.position);
-        handCamera.enabled=true;
+        //handCamera.enabled=true;
+        handCameraRenderTexture.SetActive(true);
         handObj.SetActive(true);
         handObj.transform.position= new Vector3(handStartPos.position.x,handStartPos.position.y,handObj.transform.position.z);
         playerTargetTrans=interactTransform;
@@ -320,14 +353,19 @@ public class HandControl : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.GetComponent<InteractionPoint>()==null) return;
+        if(insideInteractionTrigger) return;
         collidedInteractionTrigger = col.gameObject;
+        if(collidedInteractionTrigger.GetComponent<InteractionPoint>().interactionFinished) return;
         SwitchToInteracting(collidedInteractionTrigger.GetComponent<InteractionPoint>().pointToMoveTo);
+        //Debug.Log(collidedInteractionTrigger.GetComponent<InteractionPoint>().pointToMoveTo.rotation);
+        insideInteractionTrigger=true;
     }
 
     void OnTriggerExit(Collider col)
     {
         if(col.gameObject.GetComponent<InteractionPoint>()==null) return;
         collidedInteractionTrigger = null;
+        insideInteractionTrigger=false;
     }
 
 

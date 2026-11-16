@@ -37,16 +37,26 @@ public class PortalCamera : MonoBehaviour
 
     private void OnEnable()
     {
-        RenderPipeline.beginCameraRendering += UpdateCamera;
+        RenderPipeline.endCameraRendering += UpdateCamera;
     }
 
     private void OnDisable()
     {
-        RenderPipeline.beginCameraRendering -= UpdateCamera;
+        RenderPipeline.endCameraRendering -= UpdateCamera;
+    }
+
+    public void UpdatePortals(Portal[] newPortals)
+    {
+        portals[0].Renderer.material.mainTexture = null;
+        portals[1].Renderer.material.mainTexture = null;
+        portals=newPortals;
+        portals[0].Renderer.material.mainTexture = tempTexture1;
+        portals[1].Renderer.material.mainTexture = tempTexture2;
     }
 
     void UpdateCamera(ScriptableRenderContext SRC, Camera camera)
     {
+        
         if (!portals[0].IsPlaced || !portals[1].IsPlaced)
         {
             return;

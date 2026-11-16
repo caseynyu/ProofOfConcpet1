@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Controls controls;
     [SerializeField] private GameObject cameraHolder;
+    private HandControl handControl;
 
     
     
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         //get the character controller and controls components
         controller = GetComponent<CharacterController>();
         controls = GetComponent<Controls>();
+        handControl=GetComponent<HandControl>();
     }
 
     void Update()
@@ -57,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(handControl.currentPlayState==HandControl.PlayStates.interacting) return;
         // --isGrounded logic--
         isGrounded = RaycastTouchesGround();
         if (isGrounded && !wasGroundedLastFrame) {
@@ -159,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
     /// Cast raycasts from the middle of the player and from 8 corners to test if the player is on the ground
     /// </summary>
     bool RaycastTouchesGround() {
-        float rayLength = controller.height * .6f;
+        float rayLength = controller.height * .51f;
 
         //test if the middle of the player is touching the ground
         if (RaycastTest(transform.position, rayLength)) {
