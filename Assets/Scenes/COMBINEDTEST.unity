@@ -7236,13 +7236,6 @@ Transform:
   m_Children:
   - {fileID: 4014816018822292567}
   - {fileID: 1456952845}
-<<<<<<< Updated upstream
-=======
-  - {fileID: 6879505650483709925}
-  - {fileID: 1853318564}
-  - {fileID: 2053255871}
-  - {fileID: 1243170061}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &851229833
@@ -8275,11 +8268,8 @@ GameObject:
   - component: {fileID: 1006665584}
   - component: {fileID: 1006665583}
   - component: {fileID: 1006665582}
-<<<<<<< Updated upstream
   - component: {fileID: 1006665580}
   - component: {fileID: 1006665585}
-=======
->>>>>>> Stashed changes
   - component: {fileID: 1006665586}
   m_Layer: 7
   m_Name: DoorInteractTrigger (2)
@@ -8398,7 +8388,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006665578}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< Updated upstream
 --- !u!114 &1006665585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8413,8 +8402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnablePortals
   disableTrigger: 1
   trigger: {fileID: 8100544541334884858}
-=======
->>>>>>> Stashed changes
 --- !u!114 &1006665586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8426,15 +8413,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66f7a9e7ced46d645944a08bf8268812, type: 3}
   m_Name: 
-<<<<<<< Updated upstream
   m_EditorClassIdentifier: Assembly-CSharp::EnablePortalsTV
   disableTrigger: 1
   trigger: {fileID: 0}
   tvStaticSprite: {fileID: 0}
-=======
-  m_EditorClassIdentifier: Assembly-CSharp::EnablePortals
-  disableTrigger: 0
->>>>>>> Stashed changes
 --- !u!1 &1007714513
 GameObject:
   m_ObjectHideFlags: 0
@@ -13026,7 +13008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f577f1d13e1f7449a143df23c3223d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnablePortals
-<<<<<<< Updated upstream
   disableTrigger: 1
   trigger: {fileID: 2907045422783226129}
 --- !u!114 &1573344771
@@ -13045,9 +13026,6 @@ MonoBehaviour:
   exit: {fileID: 0}
   portal1: {fileID: 64893900312288309}
   portal2: {fileID: 6619956180313056512}
-=======
-  disableTrigger: 0
->>>>>>> Stashed changes
 --- !u!43 &1586545148
 Mesh:
   m_ObjectHideFlags: 0
@@ -14419,151 +14397,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5504739969008900957, guid: 2f43b36a84a2ed446893f1917d10d966, type: 3}
   m_PrefabInstance: {fileID: 1779247342}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
---- !u!1 &1783303162
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1783303163}
-  - component: {fileID: 1783303168}
-  - component: {fileID: 1783303167}
-  - component: {fileID: 1783303166}
-  - component: {fileID: 1783303165}
-  - component: {fileID: 1783303164}
-  m_Layer: 7
-  m_Name: EnablePortals (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1783303163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.97, y: -20.83, z: 2.19}
-  m_LocalScale: {x: 4.0918665, y: 2.3011, z: 3.374103}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4616604353140577457}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1783303164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8784c4684e29c6846ab7cea78baeb831, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovePortalsNature
-  portal1: {fileID: 64893900312288309}
-  portal2: {fileID: 0}
-  triggerEnabled: 0
---- !u!114 &1783303165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f577f1d13e1f7449a143df23c3223d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnablePortals
-  disableTrigger: 1
---- !u!65 &1783303166
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1783303167
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: c1f01e0d3b18a2949b05b043f3fd9e34, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1783303168
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783303162}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
->>>>>>> Stashed changes
 --- !u!43 &1792465181
 Mesh:
   m_ObjectHideFlags: 0
@@ -18633,7 +18466,7 @@ MonoBehaviour:
   m_CameraType: 0
   m_Cameras:
   - {fileID: 5730263345546010164}
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -18968,26 +18801,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
 --- !u!114 &268016769728417402
-=======
---- !u!114 &283688934216721268
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 6619956180313056512}
-=======
-  m_GameObject: {fileID: 2315974396188347641}
->>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d80c73be3fe0d35469084ced2f981279, type: 3}
   m_Name: 
-<<<<<<< Updated upstream
   m_EditorClassIdentifier: 
   <OtherPortal>k__BackingField: {fileID: 6206704656801259372}
   outlineRenderer: {fileID: 7550510351300592277}
@@ -18996,19 +18820,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   testTransform: {fileID: 5715739448536154783}
-=======
-  m_EditorClassIdentifier: Assembly-CSharp::Portal
-  <OtherPortal>k__BackingField: {fileID: 1369102373243576103}
-  outlineRenderer: {fileID: 0}
-  <PortalColour>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  placementMask:
-    serializedVersion: 2
-    m_Bits: 0
-  testTransform: {fileID: 0}
-  portalObjects: []
-  wallCollider: {fileID: 0}
-  canTeleportThrough: 0
->>>>>>> Stashed changes
 --- !u!1 &295828125151855286
 GameObject:
   m_ObjectHideFlags: 0
@@ -19189,65 +19000,14 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
 --- !u!33 &378035378471004179
 MeshFilter:
-=======
---- !u!23 &378299980816361004
-MeshRenderer:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 1260346487702504107}
   m_Mesh: {fileID: 4493585093827132993, guid: ba44e156587dfb549b7bda7f3b23695d, type: 3}
-=======
-  m_GameObject: {fileID: 4996282559653705807}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f7d04dab3eb84fc4d84c446dac64de77, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!33 &381247114994613428
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20790,25 +20550,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149089759247853529}
   m_Mesh: {fileID: 1886820233608824184, guid: e165d5c99acc5d34fab460f8ab9cd733, type: 3}
-<<<<<<< Updated upstream
-=======
---- !u!4 &1955806045554993650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5567628843412994147}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -34.19264, y: 12.529442, z: -11.964873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1464067891450283809}
-  m_Father: {fileID: 2068593568}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1966682327739768755
 GameObject:
   m_ObjectHideFlags: 0
@@ -24871,24 +24612,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7232649822668952630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
---- !u!4 &4930841206231664788
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4523429056147092726}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.709638, y: 109.329445, z: -10.534873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!23 &4950127456515507870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25176,12 +24899,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 1
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 3
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -25192,7 +24915,7 @@ MonoBehaviour:
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
-  m_ClearDepth: 1
+  m_ClearDepth: 0
   m_AllowXRRendering: 1
   m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
@@ -27569,7 +27292,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
-<<<<<<< Updated upstream
 --- !u!1 &6619956180313056512
 GameObject:
   m_ObjectHideFlags: 0
@@ -27590,8 +27312,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-=======
->>>>>>> Stashed changes
 --- !u!23 &6651788973667150073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27796,11 +27516,7 @@ Transform:
   m_GameObject: {fileID: 998260971276126539}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
   m_LocalPosition: {x: 3.3, y: 51.3, z: -10.27}
-=======
-  m_LocalPosition: {x: 3.63, y: 111.4, z: -8.06}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29979,6 +29695,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49aa428cf8f364f898ba861aa96c9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!82 &7570574705299788071
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998260971276126539}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!33 &7571880321714431249
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30928,7 +30741,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 2
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -33306,10 +33119,3 @@ SceneRoots:
   - {fileID: 2068593568}
   - {fileID: 4616604353140577457}
   - {fileID: 844665520}
-<<<<<<< Updated upstream
-=======
-  - {fileID: 1678827277}
-  - {fileID: 16944283}
-  - {fileID: 3185208654240814384}
-  - {fileID: 4930841206231664788}
->>>>>>> Stashed changes
