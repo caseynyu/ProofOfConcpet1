@@ -5,7 +5,7 @@ public class CylindarGrab : InteractableObject
     public override void InteractOneShotTrigger()
     {
         base.InteractStart();
-        print("interacted");
+        //print("interacted");
         interactionFinished=true;
         handControl.SetTriggerInteractionFinished();
         handControl.hasFuse=true;

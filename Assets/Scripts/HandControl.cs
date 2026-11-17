@@ -331,13 +331,13 @@ public class HandControl : MonoBehaviour
 
     public void SetTriggerInteractionFinished()
     {
-        print(playerTargetTrans.parent.gameObject.name);
+        //print(playerTargetTrans.parent.gameObject.name);
         playerTargetTrans.parent.gameObject.GetComponent<InteractionPoint>().interactionFinished=true;
     }
 
     public void SwitchToInteracting(Transform interactTransform)
     {
-        Debug.Log("test");
+        //Debug.Log("test");
         controller.enabled=false;
         switchedThisFrame=true;
         currentPlayState=PlayStates.interacting;

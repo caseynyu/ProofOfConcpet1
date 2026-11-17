@@ -14,7 +14,7 @@ public class MovePortals : MonoBehaviour
         portalCameras= FindObjectsByType<PortalCamera>().ToList();
         portal1.DisablePortal();
         portal2.DisablePortal();
-        print("test");
+        //print("test");
     }
 
     void OnTriggerEnter(Collider col)

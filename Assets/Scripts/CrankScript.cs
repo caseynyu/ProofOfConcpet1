@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ public class CrankScript : InteractableObject
 {
     
     //private HandControl handControl;
+    [SerializeField] List<GameObject> objectsToEnable = new List<GameObject>();
+    [SerializeField] SpriteRenderer sunSpriteRend;
+    [SerializeField] List<Sprite> sunSprites = new List<Sprite>();
 
     [SerializeField] GameObject crankPivot;
     [SerializeField] GameObject target;
@@ -22,13 +26,23 @@ public class CrankScript : InteractableObject
 
     private float rotationCounter;
 
+    private Quaternion startRotation;
+    [SerializeField] InteractionPoint interactionPoint;
+
     public override void Awake()
     {
         base.Awake();
+        
+        startRotation=crankPivot.transform.rotation;
         handControl = FindAnyObjectByType<HandControl>();
         sunObj.transform.position=sunStart.transform.position;
         sunObj.transform.localScale=sunStart.transform.localScale;
-        triggertoEnable.GetComponent<EnablePortals>().disabled=true;
+        //triggertoEnable.GetComponent<EnablePortals>().disabled=true;
+    }
+
+    public void Start()
+    {
+        Reset();
     }
 
     public override void InteractStart()
@@ -38,6 +52,7 @@ public class CrankScript : InteractableObject
 
     void Update()
     {
+        GetComponent<AudioSource>().Pause();
         if(isInteracting) UpdateRotation();
     }
 
@@ -63,13 +78,14 @@ public class CrankScript : InteractableObject
         {
             rotationCounter-=1;
         } */
-
+        GetComponent<AudioSource>().Pause();
         if (deltaAngle > 0)
         {
             rotationCounter += 1;
+            GetComponent<AudioSource>().Play();
         } else if (deltaAngle < 0)
         {
-
+            GetComponent<AudioSource>().Play();
             rotationCounter -= 1;
         }
 
@@ -90,23 +106,90 @@ public class CrankScript : InteractableObject
         //crankPivot.transform.LookAt(target.transform);
     }
 
+    public void Reset()
+    {
+        foreach(GameObject obj in objectsToEnable)
+        {
+            obj.SetActive(false);
+        }
+        crankPivot.transform.rotation=startRotation;
+        rotationCounter=0;
+        stopSunChanging=false;
+        sunSpriteRend.sprite=sunSprites[0];
+        interactionFinished=false;
+        sunObj.transform.position = sunStart.position;
+        sunObj.transform.localScale = sunStart.lossyScale;
+
+        interactionPoint.interactionFinished=false;
+    }
+
     private void MoveSun()
     {
         if(rotationCounter<0) rotationCounter=0;
+        if (rotationCounter > 36)
+        {
+            sunSpriteRend.sprite=sunSprites[0];
+        }
+        if (rotationCounter > 72)
+        {
+            sunSpriteRend.sprite=sunSprites[1];
+        }
+        if (rotationCounter > 108)
+        {
+            sunSpriteRend.sprite=sunSprites[2];
+        }
+        if (rotationCounter > 144)
+        {
+            sunSpriteRend.sprite=sunSprites[3];
+        }
+        if (rotationCounter > 180)
+        {
+            sunSpriteRend.sprite=sunSprites[4];
+        }
+        if (rotationCounter > 216)
+        {
+            sunSpriteRend.sprite=sunSprites[5];
+        }
+        if (rotationCounter > 252)
+        {
+            sunSpriteRend.sprite=sunSprites[6];
+        }
+        if (rotationCounter > 288)
+        {
+            sunSpriteRend.sprite=sunSprites[7];
+        }
+        if (rotationCounter > 324)
+        {
+            sunSpriteRend.sprite=sunSprites[8];
+        }
+
         if (rotationCounter > 350)
         {
+            sunSpriteRend.sprite=sunSprites[9];
+            foreach(GameObject obj in objectsToEnable)
+            {
+                obj.SetActive(true);
+            }
             rotationCounter=360; 
             stopSunChanging=true;
             interactionFinished=true;
+            sunObj.transform.position = sunEnd.position;
+            sunObj.transform.localScale = sunEnd.lossyScale;
             handControl.SetTriggerInteractionFinished();
             triggertoEnable.GetComponent<EnablePortals>().EnablePortalsDirect();
             secondtriggertoEnable.GetComponent<SwapPortals>().SwapPortalsDirect();
             //triggertoEnable.GetComponent<EnablePortals>().enablePortals(handControl.gameObject);
-        } 
+        }
+        else
+        {
+            float rotaionCounterSmall = rotationCounter/360;
+            sunObj.transform.position = Vector3.Slerp(sunStart.position,sunEnd.position,rotaionCounterSmall);
+            sunObj.transform.localScale = Vector3.Slerp(sunStart.localScale,sunEnd.localScale,rotaionCounterSmall);
+        }
         /* if(rotationCounter>20) sunSprite = sunspriteanimation2
         if(rotationCounter>70) sunSprite = sunspriteanimation3
         if(rotationCounter>120) sunSprite = sunspriteanimation4 */
-        float rotaionCounterSmall = rotationCounter/360;
+        
 
         //Use rotation counter to animate sun
 
@@ -117,8 +200,7 @@ public class CrankScript : InteractableObject
             triggertoDisable.SetActive(false);
         } */
 
-        sunObj.transform.position = Vector3.Slerp(sunStart.position,sunEnd.position,rotaionCounterSmall);
-        sunObj.transform.localScale = Vector3.Slerp(sunStart.localScale,sunEnd.localScale,rotaionCounterSmall);
+        
         
 
     }

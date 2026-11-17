@@ -7,10 +7,12 @@ public class SwapPortals : MonoBehaviour
     private List<PortalCamera> portalCameras;
     [SerializeField] private Portal portal1,portal2;
     public bool disabled=false;
+    public bool enableTriggerOnPortal1;
 
     void Start()
     {
         portalCameras=FindObjectsByType<PortalCamera>(FindObjectsInactive.Include).ToList();
+        Reset();
     }
 
     public void SwapPortalsDirect()
@@ -18,6 +20,10 @@ public class SwapPortals : MonoBehaviour
         foreach(PortalCamera portalCamera in portalCameras)
         {
             portalCamera.UpdatePortals(new Portal[] {portal1,portal2});
+        }
+        if (enableTriggerOnPortal1)
+        {
+            portal1.canTeleportThrough=true;
         }
     }
 
@@ -28,6 +34,18 @@ public class SwapPortals : MonoBehaviour
         foreach(PortalCamera portalCamera in portalCameras)
         {
             portalCamera.UpdatePortals(new Portal[] {portal1,portal2});
+        }
+        if (enableTriggerOnPortal1)
+        {
+            portal1.canTeleportThrough=true;
+        }
+    }
+
+    public void Reset()
+    {
+        if (enableTriggerOnPortal1)
+        {
+            portal1.canTeleportThrough=false;
         }
     }
 }

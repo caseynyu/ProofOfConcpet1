@@ -4,7 +4,7 @@ public class WalkingSound : MonoBehaviour
 {
     private Vector3 lastPosition;
     private AudioSource audioSource;
-    private float minSpeed = 0.2f;
+    private float minSpeed = 0.1f;
     
     void Start()
     {

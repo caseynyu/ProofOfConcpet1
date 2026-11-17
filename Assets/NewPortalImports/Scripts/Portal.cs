@@ -27,7 +27,7 @@ public class Portal : MonoBehaviour
     public Renderer Renderer { get; private set; }
     private new BoxCollider collider;
 
-    [SerializeField] private bool canTeleportThrough;
+    [SerializeField] public bool canTeleportThrough;
 
     private void Awake()
     {
@@ -98,7 +98,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("exiting?");
+        //Debug.Log("exiting?");
         var obj = other.GetComponent<PortalableObject>();
 
         if(portalObjects.Contains(obj))
